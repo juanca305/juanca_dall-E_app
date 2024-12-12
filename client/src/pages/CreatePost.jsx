@@ -24,11 +24,9 @@ const CreatePost = () => {
         setGeneratingImg(true);
         const response = await fetch('http://localhost:8080/api/v1/dalle', {
             method: 'Post',
-            //RequestMode: "no-cors",
+            RequestMode: "no-cors",
             headers: {
               'Content-Type': 'application/json',
-              Access-Control-Allow-Origin: https://juancadall-e.com/create-post
-
             },
             body: JSON.stringify({ prompt: form.prompt }),
         })
