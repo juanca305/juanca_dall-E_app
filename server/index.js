@@ -40,7 +40,7 @@ app.use(function(req, res, next) {
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
      next();
   })
-  app.use(allowCrossDomain);
+  //app.use(allowCrossDomain);
 
 //The first Route (root).
 app.get('/', async (req, res) => {
