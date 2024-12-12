@@ -18,6 +18,15 @@ app.use(cors({
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false
   }));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 app.use(express.json({ limit: '50mb'}));
 
 //Create API endpoints.
