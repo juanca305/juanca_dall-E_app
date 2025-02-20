@@ -11,7 +11,7 @@ dotenv.config();
 
 const app = express();
 
-const whiteList = ['https://juancadall-e.com'];
+/*const whiteList = ['https://juancadall-e.com'];
 const corsOptions = {
   origin: (origin, callback) => {
     if (whiteList.indexOf(origin) !== -1) {
@@ -22,9 +22,9 @@ const corsOptions = {
   },
   optionsSuccessStatus: 200
 }
-app.use(cors(corsOptions));
+app.use(cors(corsOptions));*/
 
-//app.use(cors());
+app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
 app.use('/api/v1/post', postRoutes);
