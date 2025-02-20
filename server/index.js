@@ -1,5 +1,5 @@
 // External Packages.
-import express from 'express';
+/*import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './mongodb/connect.js';
@@ -62,10 +62,10 @@ const startServer = async () => {
         console.log(error);
     }  
 }
-startServer();
+startServer();*/
 //****************************************************************************
 
-/*import express from 'express';
+import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 
@@ -76,7 +76,21 @@ import dalleRoutes from './routes/dalleRoutes.js';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+const whiteList = ['https://juancadall-e.com'];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whiteList.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not Allowed by Cors'))
+    }
+  },
+  optionsSuccessStatus: 200
+}
+app.use(cors(corsOptions));
+
+//app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
 app.use('/api/v1/post', postRoutes);
@@ -97,7 +111,7 @@ const startServer = async () => {
   }
 };
 
-startServer();*/
+startServer();
 
 
 
