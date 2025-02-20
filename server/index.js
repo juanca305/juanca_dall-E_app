@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
 });
 
 ///********* NEW CODE *******////////
-const whiteList = ['https://juancadall-e.com'];
+/*const whiteList = ['https://juancadall-e.com'];
 const corsOptions = {
   origin: (origin, callback) => {
     if (whiteList.indexOf(origin) !== -1) {
@@ -38,7 +38,7 @@ app.use(cors(corsOptions));
     preflightContinue: false
   }));*/
 
-app.use(express.json({ limit: '50mb'}));
+/*app.use(express.json({ limit: '50mb'}));
 //Create API endpoints.
 app.use('/api/v1/post', postRoutes);
 app.use('/api/v1/dalle', dalleRoutes);
