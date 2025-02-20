@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
 });
 
 ///********* NEW CODE *******////////
-const whiteList = [ https://juancadall-e.com ];
+const whiteList = ['https://juancadall-e.com'];
 const corsOptions = {
   origin: (origin, callback) => {
     if (whiteList.indexOf(origin) !== -1) {
