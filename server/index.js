@@ -1,5 +1,5 @@
 // External Packages.
-/*import express from 'express';
+import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './mongodb/connect.js';
@@ -31,7 +31,7 @@ app.use(function(req, res, next) {
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
      next();
   })
-  //app.use(allowCrossDomain);
+  app.use(allowCrossDomain);
 //The first Route (root).
 app.get('/', async (req, res) => {
     res.send('Hello from DALL-E');
@@ -45,10 +45,10 @@ const startServer = async () => {
         console.log(error);
     }  
 }
-startServer();*/
+startServer();
 //****************************************************************************
 
-import express from 'express';
+/*import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 
@@ -80,7 +80,7 @@ const startServer = async () => {
   }
 };
 
-startServer();
+startServer();*/
 
 
 
