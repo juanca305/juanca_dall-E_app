@@ -39,7 +39,7 @@ router.route('/').post(async (req, res) => {
         })
             
         const image = aiResponse?.data.data[0].b64_json
-        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Origin', 'https://juancadall-e.com/create-post');
         
         res.status(200).json({ photo: image })
 
