@@ -24,7 +24,7 @@ const CreatePost = () => {
         setGeneratingImg(true);
         const response = await fetch('https://juanca-dall-e-app.onrender.com/api/v1/dalle', {
             method: 'Post',
-            RequestMode: "no-cors",
+            RequestMode: "cors",
             headers: {
               'Content-Type': 'application/json',
             },
