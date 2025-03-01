@@ -12,13 +12,14 @@ dotenv.config();
 const app = express();
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://juancadall-e.com/");
+  res.header("Access-Control-Allow-Origin", "https://juancadall-e.com/create-post");
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
 app.use(cors({
-    origin: "https://juancadall-e.com/create-post",
+    origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false
   }));
