@@ -1,5 +1,5 @@
 // External Packages.
-import express from 'express';
+/*import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './mongodb/connect.js';
@@ -48,10 +48,10 @@ const startServer = async () => {
         console.log(error);
     }  
 }
-startServer();
+startServer();*/
 
 /*******************************************************************************/
-/*import express from 'express';
+import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 
@@ -70,7 +70,7 @@ app.use('/api/v1/dalle', dalleRoutes);
 
 app.get('/', async (req, res) => {
   res.status(200).json({
-    message: 'Hello from DALL.E!',
+    message: 'Hey, Hey!, Hello from DALL.E!',
   });
 });
 
@@ -84,7 +84,7 @@ const startServer = async () => {
 };
 
 startServer();
-*/
+
 
 
 
