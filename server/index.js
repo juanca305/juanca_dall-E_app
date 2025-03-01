@@ -37,7 +37,7 @@ app.use(function(req, res, next) {
   //app.use(allowCrossDomain);
 //The first Route (root).
 app.get('/', async (req, res) => {
-    res.send('Hello from DALL-E');
+    res.send('Hello, this is Juanca from DALL-E');
 });
 //Start the server.
 const startServer = async () => {
