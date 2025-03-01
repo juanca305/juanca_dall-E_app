@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(cors({
-    origin: "*",
+    origin: "https://juancadall-e.com/create-post",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false
   }));
