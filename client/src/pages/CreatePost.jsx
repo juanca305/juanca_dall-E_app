@@ -27,6 +27,7 @@ const CreatePost = () => {
             RequestMode: "cors",
             headers: {
               'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ prompt: form.prompt }),
         })
