@@ -22,7 +22,7 @@ const CreatePost = () => {
     if(form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        const response = await fetch('https://juanca-dalle.onrender.com/', {
             method: 'Post',
             RequestMode: "no-cors",
             headers: {
