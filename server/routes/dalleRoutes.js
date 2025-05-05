@@ -82,11 +82,17 @@ router.route('/').post(async (req, res) => {
         res.status(200).json({ photo: image });
 
     } catch (error) {
-        console.error('OpenAI API error:', error.message || error);
-        res.status(500).json({
-            error: error?.response?.data?.error?.message || 'Something went wrong',
-        });
-    }
+        console.error('OpenAI API error:', error);
+      
+        // Return more helpful error details to frontend (only safe ones)
+        const errMsg =
+          error?.response?.data?.error?.message ||
+          error?.message ||
+          'Unexpected error from OpenAI API';
+      
+        res.status(500).json({ error: errMsg });
+      }
+      
 });
 
 export default router;
