@@ -111,11 +111,14 @@ router.route('/').post(async (req, res) => {
       }
   
       const aiResponse = await openai.images.generate({
-        prompt,
+        prompt: "The usa flag",
         size: "1024x1024",
         n: 1,
-        response_format: 'b64_json',
+        response_format: 'b64_json'
       });
+
+      console.log("🟢 Prompt being sent to OpenAI:", prompt);
+
   
       const image = aiResponse?.data?.data?.[0]?.b64_json;
       res.status(200).json({ photo: image });
