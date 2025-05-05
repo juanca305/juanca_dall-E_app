@@ -69,30 +69,31 @@ router.route('/').get((req, res) => {
 
 router.route('/').post(async (req, res) => {
     try {
-        const { prompt } = req.body;
-
-        const aiResponse = await openai.images.generate({
-            prompt,
-            size: "1024x1024",
-            n: 1,
-            response_format: 'b64_json'
-        });
-
-        const image = aiResponse?.data?.data[0]?.b64_json;
-        res.status(200).json({ photo: image });
-
-    } catch (error) {
-        console.error('OpenAI API error:', error);
-      
-        // Return more helpful error details to frontend (only safe ones)
-        const errMsg =
-          error?.response?.data?.error?.message ||
-          error?.message ||
-          'Unexpected error from OpenAI API';
-      
-        res.status(500).json({ error: errMsg });
+      const { prompt } = req.body;
+  
+      console.log("🔍 Prompt received:", prompt); // ADD THIS
+  
+      if (!prompt || typeof prompt !== 'string') {
+        return res.status(400).json({ error: 'Prompt is required and must be a string' });
       }
-      
-});
+  
+      const aiResponse = await openai.images.generate({
+        prompt,
+        n: 1,
+        size: "1024x1024",
+        response_format: "b64_json"
+      });
+  
+      const image = aiResponse?.data?.data[0]?.b64_json;
+      res.status(200).json({ photo: image });
+  
+    } catch (error) {
+      console.error('OpenAI API error:', error);
+      res.status(500).json({
+        error: error?.response?.data?.error?.message || 'Unexpected error from OpenAI API',
+      });
+    }
+  });
+  
 
 export default router;
