@@ -82,14 +82,26 @@ app.get('/', async (req, res) => {
   });
 });
 
+// const startServer = async () => {
+//   try {
+//     connectDB(process.env.MONGODB_URL);
+//     app.listen(8080, () => console.log('Server started on port 8080'));
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
 const startServer = async () => {
   try {
-    connectDB(process.env.MONGODB_URL);
-    app.listen(8080, () => console.log('Server started on port 8080'));
+    await connectDB(process.env.MONGODB_URL);
+
+    const PORT = process.env.PORT || 8080;
+    app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
   } catch (error) {
-    console.log(error);
+    console.error('Error starting server:', error);
   }
 };
+
 
 startServer();
 
