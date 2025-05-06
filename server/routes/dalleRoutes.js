@@ -142,7 +142,12 @@ router.route('/').post(async (req, res) => {
     res.status(200).json({ photo: image });
   } catch (error) {
     console.error(error);
-    res.status(500).send(error?.response.data.error.message || 'Something went wrong');
+    //res.status(500).send(error?.response.data.error.message || 'Something went wrong');
+    res.status(500).json({
+      success: false,
+      error: error?.response?.data?.error?.message || error?.message || 'Something went wrong',
+    });
+    
   }
 });
 
