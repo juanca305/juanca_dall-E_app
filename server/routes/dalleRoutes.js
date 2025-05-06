@@ -67,38 +67,6 @@ router.route('/').get((req, res) => {
     res.send('HELLO from DALL-E');
 });
 
-// router.route('/').post(async (req, res) => {
-//     try {
-//       const { prompt } = req.body;
-  
-//       console.log("🔍 Prompt received:", prompt); // ADD THIS
-  
-//       if (!prompt || typeof prompt !== 'string') {
-//         return res.status(400).json({ error: 'Prompt is required and must be a string' });
-//       }
-  
-//       const aiResponse = await openai.images.generate({
-//         prompt,
-//         n: 1,
-//         size: "1024x1024",
-//         response_format: "b64_json"
-//       });
-  
-//       const image = aiResponse?.data?.data[0]?.b64_json;
-//       res.status(200).json({ photo: image });
-  
-//     } catch (error) {
-//       console.error('OpenAI API error:', error);
-//       res.status(500).json({
-//         error: error?.response?.data?.error?.message || 'Unexpected error from OpenAI API',
-//       });
-//     }
-//   });
-  
-
-// export default router;
-
-//////////////////////////////////////////////////*css*/`
     
 router.route('/').post(async (req, res) => {
     try {
@@ -111,18 +79,15 @@ router.route('/').post(async (req, res) => {
       }
   
       const aiResponse = await openai.images.generate({
-        model: "dall-e-3",
+        model: "dall-e-2",
         prompt,
         size: "1024x1024",
         n: 1,
         response_format: 'b64_json'
       });
 
-
-
       console.log("🟢 Prompt being sent to OpenAI:", prompt);
 
-  
       ///const image = aiResponse?.data?.data?.[0]?.b64_json;
       const image = aiResponse.data[0].b64_json;
       res.status(200).json({ photo: image });
