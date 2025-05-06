@@ -79,15 +79,16 @@ router.route('/').post(async (req, res) => {
       }
   
       const aiResponse = await openai.images.generate({
+        model: "dall-e-3",
         prompt,
         size: "1024x1024",
         n: 1,
-        response_format: 'b64_json'
+        quality: "standard"
       });
 
       console.log("🟢 Prompt being sent to OpenAI:", prompt);
 
-      const image = aiResponse?.data?.data?.[0]?.b64_json;
+      const image = aiResponse?.data[0]?.url;
       //const image = aiResponse?.data?.[0].b64_json;
       res.status(200).json({ photo: image });
     } catch (error) {
