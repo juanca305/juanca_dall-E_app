@@ -57,12 +57,12 @@ const CreatePost = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(form),
+          body: JSON.stringify({...form}),
           credentials: 'include'
-        })
+        });
 
         await response.json();
-
+        alert('Success');
         // Go back to home to be able to see that image.
         navigate('/');
 
